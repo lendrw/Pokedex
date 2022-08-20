@@ -34,10 +34,9 @@ const renderPokemon = async (pokemon) => {
         searchPokemon = data.id;
 
     } else {
-
         pokemonName.innerHTML = 'MissingNO';
         pokemonNumber.innerHTML = '000';
-        pokemonImage.src = "im/Missingno..webp";
+        pokemonImage.src = "img/Missingno..webp";
         input.value = '';
     }
 }
