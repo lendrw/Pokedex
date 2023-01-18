@@ -35,7 +35,7 @@ const renderPokemon = async (pokemon) => {
 
     } else {
         pokemonName.innerHTML = 'MissingNO';
-        pokemonNumber.innerHTML = '000';
+        pokemonNumber.innerHTML = '???';
         pokemonImage.src = "img/Missingno..webp";
         input.value = '';
     }
