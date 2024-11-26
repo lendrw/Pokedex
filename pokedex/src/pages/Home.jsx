@@ -11,16 +11,17 @@ const Home = () => {
   return (
     <div>
         <PokedexData
-        name={pokemon.name}
-        number={pokemon.number}
-        sprite={pokemon.sprite}
-        types={pokemon.types}
-      />
-      <SearchForm 
-        onSearch={renderPokemon}
-        onPrev={goToPrev}
-        onNext={goToNext}
-      />
+            name={pokemon.name}
+            number={pokemon.number}
+            sprite={pokemon.sprite}
+            types={pokemon.types}
+            cry={pokemon.cry}
+        />
+        <SearchForm 
+            onSearch={renderPokemon}
+            onPrev={goToPrev}
+            onNext={goToNext}
+        />
 
       <div>
         <ul>

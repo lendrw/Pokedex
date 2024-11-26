@@ -7,6 +7,7 @@ const usePokemon = () => {
     number: '',
     sprite: '',
     types: [],
+    cry: '',
   });
   
   const [searchPokemon, setSearchPokemon] = useState(1);
@@ -20,7 +21,7 @@ const usePokemon = () => {
   };
 
   const renderPokemon = async (pokemon) => {
-    setPokemon({ name: 'Loading...', number: '', sprite: '', types: [] });
+    setPokemon({ name: 'Loading...', number: '', sprite: '', types: [], cry: '' });
 
     const data = await fetchPokemon(pokemon);
 
@@ -30,9 +31,9 @@ const usePokemon = () => {
         number: data.id,
         sprite: data.sprites.other.showdown.front_default,
         types: data.types.map((t) => t.type.name),
+        cry: `https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/${data.id}.ogg`,
       });
 
-      
       setSearchPokemon(data.id);
 
     } else {
@@ -41,6 +42,7 @@ const usePokemon = () => {
         number: '???',
         sprite: 'img/Missingno..webp',
         types: '',
+        cry: '',
       });
     }
   };

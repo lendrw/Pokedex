@@ -1,9 +1,23 @@
-import React from 'react'
+import React from 'react';
+import usePokemon from '../../hooks/usePokemon';
+import PokedexData from '../../components/PokedexData';
+import PokemonList from '../../components/PokemonList';
 
 const Kanto = () => {
-  return (
-    <div>Kanto</div>
-  )
-}
+  const { pokemon } = usePokemon();
 
-export default Kanto
+  return (
+    <div>
+      <PokedexData
+        name={pokemon.name}
+        number={pokemon.number}
+        sprite={pokemon.sprite}
+        types={pokemon.types}
+        cry={pokemon.cry}
+      />
+
+    </div>
+  );
+};
+
+export default Kanto;

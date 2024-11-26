@@ -1,6 +1,13 @@
 import React from 'react'
 
-const PokedexData = ({ name, number, sprite, types }) => {
+const PokedexData = ({ name, number, sprite, types, cry }) => {
+
+  const playCry = () => {
+    const audio = new Audio(cry);
+    audio.play().catch((error) => {
+      console.error("Erro ao reproduzir o áudio:", error);
+    });
+  };
 
   const typeImages = {
     normal: "assets/1.png",
@@ -37,6 +44,7 @@ const PokedexData = ({ name, number, sprite, types }) => {
             />
           ))}
         </div>
+        <button onClick={playCry}>Cry</button>
     </div>
   )
 }
