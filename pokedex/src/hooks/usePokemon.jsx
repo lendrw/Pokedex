@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
 
 const usePokemon = () => {
+
   const [pokemon, setPokemon] = useState({
     name: 'Loading...',
     number: '',
-    image: '',
+    sprite: '',
+    types: [],
   });
   
   const [searchPokemon, setSearchPokemon] = useState(1);
@@ -18,7 +20,7 @@ const usePokemon = () => {
   };
 
   const renderPokemon = async (pokemon) => {
-    setPokemon({ name: 'Loading...', number: '', image: '' });
+    setPokemon({ name: 'Loading...', number: '', sprite: '', types: [] });
 
     const data = await fetchPokemon(pokemon);
 
@@ -26,14 +28,19 @@ const usePokemon = () => {
       setPokemon({
         name: data.name,
         number: data.id,
-        image: data.sprites.versions['generation-viii'].icons.front_default,
+        sprite: data.sprites.other.showdown.front_default,
+        types: data.types.map((t) => t.type.name),
       });
+
+      
       setSearchPokemon(data.id);
+
     } else {
       setPokemon({
         name: 'MissingNO',
         number: '???',
-        image: 'img/Missingno..webp',
+        sprite: 'img/Missingno..webp',
+        types: '',
       });
     }
   };
