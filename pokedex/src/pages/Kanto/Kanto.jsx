@@ -1,5 +1,6 @@
 import React from 'react';
 import usePokemon from '../../hooks/usePokemon';
+import usePokedex from '../../hooks/usePokedex';
 import PokedexData from '../../components/PokedexData';
 import PokemonList from '../../components/PokemonList';
 
@@ -16,6 +17,7 @@ const Kanto = () => {
         cry={pokemon.cry}
       />
 
+      <PokemonList start={1} end={15} />
     </div>
   );
 };

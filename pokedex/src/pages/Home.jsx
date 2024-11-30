@@ -6,7 +6,7 @@ import SearchForm from '../components/SearchForm';
 import { Link } from 'react-router-dom';
 
 const Home = () => {
-    const { pokemon, renderPokemon, goToNext, goToPrev } = usePokemon();
+    const { pokemon, fetchAndRenderPokemon, goToNext, goToPrev } = usePokemon();
 
   return (
     <div>
@@ -18,7 +18,7 @@ const Home = () => {
             cry={pokemon.cry}
         />
         <SearchForm 
-            onSearch={renderPokemon}
+            onSearch={fetchAndRenderPokemon}
             onPrev={goToPrev}
             onNext={goToNext}
         />

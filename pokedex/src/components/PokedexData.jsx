@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import styles from './PokedexData.module.css'
 
 const PokedexData = ({ name, number, sprite, types, cry }) => {
 
@@ -32,7 +33,7 @@ const PokedexData = ({ name, number, sprite, types, cry }) => {
 
   return (
     <div className='pokemon-card'>
-        <img className='pokemon_sprite' src={sprite} alt={name} />
+        <img className={styles.pokemon_sprite} src={sprite} alt={name} />
         <h1 className='pokemon_name'>{number} - {name}</h1>
         <div className='pokemon_types'>
           {types && types.map((type) => (

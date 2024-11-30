@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 
 const usePokemon = () => {
-
   const [pokemon, setPokemon] = useState({
     name: 'Loading...',
     number: '',
@@ -9,52 +8,64 @@ const usePokemon = () => {
     types: [],
     cry: '',
   });
-  
+
   const [searchPokemon, setSearchPokemon] = useState(1);
 
-  const fetchPokemon = async (pokemon) => {
-    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`);
-    if (response.status === 200) {
-      return await response.json();
+  const fetchPokemon = async (pokemonId, signal) => {
+    try {
+      const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonId}`, { signal });
+      if (response.ok) {
+        return await response.json();
+      }
+      throw new Error('Pokemon not found');
+    } catch (error) {
+      if (error.name === 'AbortError') {
+        console.log('Fetch aborted');
+      } else {
+        console.error(error.message);
+      }
+      return null;
     }
-    return null;
   };
 
-  const renderPokemon = async (pokemon) => {
+  const fetchAndRenderPokemon = async (pokemonId) => {
+    const controller = new AbortController();
+    const signal = controller.signal;
+
     setPokemon({ name: 'Loading...', number: '', sprite: '', types: [], cry: '' });
 
-    const data = await fetchPokemon(pokemon);
+    const data = await fetchPokemon(pokemonId, signal);
 
     if (data) {
       setPokemon({
         name: data.name,
         number: data.id,
-        sprite: data.sprites.other.showdown.front_default,
+        sprite: data.sprites.other['showdown']?.front_default || '',
         types: data.types.map((t) => t.type.name),
         cry: `https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/${data.id}.ogg`,
       });
 
-      setSearchPokemon(data.id);
+      setSearchPokemon(data.id); 
 
     } else {
       setPokemon({
         name: 'MissingNO',
         number: '???',
         sprite: 'img/Missingno..webp',
-        types: '',
+        types: [],
         cry: '',
       });
     }
   };
 
   useEffect(() => {
-    renderPokemon(searchPokemon);
+    fetchAndRenderPokemon(searchPokemon);
   }, [searchPokemon]);
 
   const goToNext = () => setSearchPokemon((prev) => prev + 1);
   const goToPrev = () => setSearchPokemon((prev) => (prev > 1 ? prev - 1 : prev));
 
-  return { pokemon, renderPokemon, goToNext, goToPrev, searchPokemon };
+  return { pokemon, fetchAndRenderPokemon, goToNext, goToPrev, searchPokemon };
 };
 
 export default usePokemon;
