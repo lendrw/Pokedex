@@ -1,15 +1,16 @@
 import { useState, useEffect } from 'react';
 
-const usePokemon = () => {
+const usePokemon = (initialPokemon = 1) => {
   const [pokemon, setPokemon] = useState({
     name: 'Loading...',
     number: '',
     sprite: '',
     types: [],
     cry: '',
+    description: '',
   });
 
-  const [searchPokemon, setSearchPokemon] = useState(1);
+  const [searchPokemon, setSearchPokemon] = useState(initialPokemon);
 
   const fetchPokemon = async (pokemonId, signal) => {
     try {
@@ -28,25 +29,41 @@ const usePokemon = () => {
     }
   };
 
+  const fetchDescription = async (pokemonId, signal) => {
+    try {
+      const response = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${pokemonId}`, { signal });
+      if (response.ok) {
+        return await response.json();
+      }
+      throw new Error('Pokemon not found');
+    } catch (error) {
+      if (error.name === 'AbortError') {
+        console.log('Fetch aborted');
+      } else {
+        console.error(error.message);
+      }
+      return null;
+    }
+  };
+
   const fetchAndRenderPokemon = async (pokemonId) => {
     const controller = new AbortController();
     const signal = controller.signal;
 
-    setPokemon({ name: 'Loading...', number: '', sprite: '', types: [], cry: '' });
+    setPokemon({ name: 'Loading...', number: '', sprite: '', types: [], cry: '', description: '' });
 
-    const data = await fetchPokemon(pokemonId, signal);
+    const pokemonData = await fetchPokemon(pokemonId, signal);
+    const pokemonDescription = await fetchDescription(pokemonId, signal);
 
-    if (data) {
+    if (pokemonData && pokemonDescription) {
       setPokemon({
-        name: data.name,
-        number: data.id,
-        sprite: data.sprites.other['showdown']?.front_default || '',
-        types: data.types.map((t) => t.type.name),
-        cry: `https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/${data.id}.ogg`,
+        name: pokemonData.name,
+        number: pokemonData.id,
+        sprite: pokemonData.sprites.other['showdown']?.front_default || '',
+        types: pokemonData.types.map((t) => t.type.name),
+        cry: `https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/${pokemonData.id}.ogg`,
+        description: pokemonDescription.flavor_text_entries.find((entry) => entry.language.name === 'en').flavor_text,
       });
-
-      setSearchPokemon(data.id); 
-
     } else {
       setPokemon({
         name: 'MissingNO',
@@ -54,6 +71,7 @@ const usePokemon = () => {
         sprite: 'img/Missingno..webp',
         types: [],
         cry: '',
+        description: 'A mysterious glitch in the system.',
       });
     }
   };

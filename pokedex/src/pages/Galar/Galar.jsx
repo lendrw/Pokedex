@@ -1,8 +1,23 @@
-import React from 'react'
+import React from 'react';
+import usePokemon from '../../hooks/usePokemon';
+import PokedexData from '../../components/PokedexData';
+import PokemonList from '../../components/PokemonList';
 
 const Galar = () => {
+  const { pokemon } = usePokemon();
+
   return (
-    <div>Galar</div>
+    <div>
+      <PokedexData
+        name={pokemon.name}
+        number={pokemon.number}
+        sprite={pokemon.sprite}
+        types={pokemon.types}
+        cry={pokemon.cry}
+      />
+
+      <PokemonList start={809} end={897} />
+    </div>
   )
 }
 

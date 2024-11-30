@@ -1,13 +1,18 @@
-import Pokedex from 'pokedex-promise-v2';
+import axios from 'axios';
 
-const options = {
-  protocol: 'https',
-  hostName: 'localhost:443',
-  versionPath: '/api/v2/',
-  cacheLimit: 100 * 1000, 
-  timeout: 5 * 1000 
+const pokedexService = {
+  // Requisição para obter a lista de Pokémons (básica)
+  getPokemonsList: async (interval) => {
+    const url = `https://pokeapi.co/api/v2/pokemon/?limit=${interval.limit}&offset=${interval.offset}`;
+    const response = await axios.get(url);
+    return response.data;
+  },
+
+  // Requisição para obter os detalhes de um Pokémon específico
+  getPokemonDetails: async (url) => {
+    const response = await axios.get(url);
+    return response.data;
+  },
 };
 
-const P = new Pokedex(options);
-
-export default P;
+export default pokedexService;

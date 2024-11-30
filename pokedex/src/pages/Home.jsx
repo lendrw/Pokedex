@@ -16,6 +16,7 @@ const Home = () => {
             sprite={pokemon.sprite}
             types={pokemon.types}
             cry={pokemon.cry}
+            description={pokemon.description}
         />
         <SearchForm 
             onSearch={fetchAndRenderPokemon}

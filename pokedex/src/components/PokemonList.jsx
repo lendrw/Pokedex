@@ -9,11 +9,11 @@ const PokemonList = ({ start, end }) => {
 
   return (
     <div>
-      <h1>Lista de Pokémons</h1>
       <ul>
-        {pokemonList.map((pokemon, index) => (
-          <li key={index}>
-            <p>{pokemon.name}</p>
+        {pokemonList.map((pokemon) => (
+          <li key={pokemon.number} >
+            <img src={pokemon.sprite} alt={pokemon.name} />
+            <p>#{pokemon.number} - {pokemon.name}</p>
           </li>
         ))}
       </ul>

@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import pokedexService from '../services/pokedexService';
 
 const usePokedex = (start, end) => {
-  const [pokemonList, setPokemonList] = useState([]); // Armazena os dados dos Pokémons
+  const [pokemonList, setPokemonList] = useState([]); // Armazena os detalhes dos Pokémons
   const [loading, setLoading] = useState(true); // Indica se está carregando
   const [error, setError] = useState(null); // Armazena erros, caso ocorram
 
@@ -12,13 +12,27 @@ const usePokedex = (start, end) => {
       setError(null);
 
       const interval = {
-        offset: start, // Primeiro Pokémon no intervalo
-        limit: end - start + 1, // Quantidade total de Pokémons no intervalo
+        offset: start,
+        limit: end - start + 1,
       };
 
       try {
         const response = await pokedexService.getPokemonsList(interval);
-        setPokemonList(response.results); // Supondo que `results` contenha a lista de Pokémons
+        const results = response.results;
+
+        
+        const detailedPokemons = await Promise.all(
+          results.map(async (pokemon) => {
+            const details = await pokedexService.getPokemonDetails(pokemon.url); 
+            return {
+              name: details.name,
+              number: details.id,
+              sprite: details.sprites.versions['generation-viii'].icons.front_default, 
+            };
+          })
+        );
+
+        setPokemonList(detailedPokemons); 
       } catch (err) {
         setError(err.message || 'Erro ao buscar os Pokémons.');
       } finally {
@@ -27,7 +41,7 @@ const usePokedex = (start, end) => {
     };
 
     fetchPokemons();
-  }, [start, end]); // Atualiza quando o intervalo mudar
+  }, [start, end]); 
 
   return { pokemonList, loading, error };
 };

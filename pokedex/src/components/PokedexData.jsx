@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './PokedexData.module.css'
 
-const PokedexData = ({ name, number, sprite, types, cry }) => {
+const PokedexData = ({ name, number, sprite, types, cry, description }) => {
 
   const playCry = () => {
     const audio = new Audio(cry);
@@ -46,6 +46,7 @@ const PokedexData = ({ name, number, sprite, types, cry }) => {
           ))}
         </div>
         <button onClick={playCry}>Cry</button>
+        <h1>{description}</h1>
     </div>
   )
 }
