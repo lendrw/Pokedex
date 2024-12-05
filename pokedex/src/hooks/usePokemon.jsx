@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-const usePokemon = (initialPokemon = 1) => {
+const usePokemon = (initialPokemon, maxPokemon) => {
   const [pokemon, setPokemon] = useState({
     name: 'Loading...',
     number: '',
@@ -80,10 +80,21 @@ const usePokemon = (initialPokemon = 1) => {
     fetchAndRenderPokemon(searchPokemon);
   }, [searchPokemon]);
 
-  const goToNext = () => setSearchPokemon((prev) => prev + 1);
-  const goToPrev = () => setSearchPokemon((prev) => (prev > 1 ? prev - 1 : prev));
+  const goToNext = () => {
+    setSearchPokemon((prev) => {
+      const nextPokemon = prev + 1;
+      return nextPokemon > maxPokemon ? initialPokemon : nextPokemon; 
+    });
+  };
 
-  return { pokemon, fetchAndRenderPokemon, goToNext, goToPrev, searchPokemon };
+  const goToPrev = () => {
+    setSearchPokemon((prev) => {
+      const prevPokemon = prev - 1;
+      return prevPokemon < initialPokemon ? maxPokemon : prevPokemon; 
+    });
+  };
+
+  return { pokemon, goToNext, goToPrev, searchPokemon };
 };
 
 export default usePokemon;

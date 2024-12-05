@@ -2,9 +2,9 @@ import { useState, useEffect } from 'react';
 import pokedexService from '../services/pokedexService';
 
 const usePokedex = (start, end) => {
-  const [pokemonList, setPokemonList] = useState([]); // Armazena os detalhes dos Pokémons
-  const [loading, setLoading] = useState(true); // Indica se está carregando
-  const [error, setError] = useState(null); // Armazena erros, caso ocorram
+  const [pokemonList, setPokemonList] = useState([]); 
+  const [loading, setLoading] = useState(true); 
+  const [error, setError] = useState(null); 
 
   useEffect(() => {
     const fetchPokemons = async () => {

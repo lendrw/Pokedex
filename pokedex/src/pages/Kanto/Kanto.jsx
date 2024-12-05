@@ -2,9 +2,10 @@ import React from 'react';
 import usePokemon from '../../hooks/usePokemon';
 import PokedexData from '../../components/PokedexData';
 import PokemonList from '../../components/PokemonList';
+import PrevAndNext from '../../components/PrevAndNext';
 
 const Kanto = () => {
-  const { pokemon } = usePokemon();
+  const { pokemon, goToPrev, goToNext } = usePokemon(1, 151);
 
   return (
     <div>
@@ -15,7 +16,10 @@ const Kanto = () => {
         types={pokemon.types}
         cry={pokemon.cry}
       />
-
+      <PrevAndNext
+        onPrev={goToPrev}
+        onNext={goToNext}
+      />
       <PokemonList start={0} end={150} />
     </div>
   );

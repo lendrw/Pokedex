@@ -4,9 +4,10 @@ import PokedexData from '../components/PokedexData';
 import SearchForm from '../components/SearchForm';
 
 import { Link } from 'react-router-dom';
+import PrevAndNext from '../components/PrevAndNext';
 
 const Home = () => {
-    const { pokemon, fetchAndRenderPokemon, goToNext, goToPrev } = usePokemon();
+    const { pokemon, fetchAndRenderPokemon, goToNext, goToPrev } = usePokemon(1, 898);
 
   return (
     <div>
@@ -18,10 +19,12 @@ const Home = () => {
             cry={pokemon.cry}
             description={pokemon.description}
         />
-        <SearchForm 
-            onSearch={fetchAndRenderPokemon}
+        <PrevAndNext
             onPrev={goToPrev}
             onNext={goToNext}
+        />
+        <SearchForm 
+            onSearch={fetchAndRenderPokemon}
         />
 
       <div>

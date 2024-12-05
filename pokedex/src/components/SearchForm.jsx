@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const SearchForm = ({ onSearch, onPrev, onNext }) => {
+const SearchForm = ({ onSearch }) => {
 
   const [inputValue, setInputValue] = useState('');
 
@@ -20,12 +20,6 @@ const SearchForm = ({ onSearch, onPrev, onNext }) => {
         placeholder="Enter Pokémon name or ID"
       />
       <button type="submit">Search</button>
-      <button className="btn-prev" onClick={onPrev}>
-        Previous
-      </button>
-      <button className="btn-next" onClick={onNext}>
-        Next
-      </button>
     </form>
   );
 };
