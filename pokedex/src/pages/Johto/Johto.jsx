@@ -5,7 +5,11 @@ import PokemonList from '../../components/PokemonList';
 import PrevAndNext from '../../components/PrevAndNext';
 
 const Johto = () => {
-  const { pokemon, goToPrev, goToNext } = usePokemon(152, 251);
+  const { pokemon, goToPrev, goToNext, fetchAndRenderPokemon } = usePokemon(152, 251);
+
+  const handlePokemonClick = (pokemonNumber) => {
+    fetchAndRenderPokemon(pokemonNumber);
+  };
 
   return (
     <div>
@@ -15,12 +19,14 @@ const Johto = () => {
         sprite={pokemon.sprite}
         types={pokemon.types}
         cry={pokemon.cry}
+        height={pokemon.height}
+        weight={pokemon.weight}
       />
       <PrevAndNext
         onPrev={goToPrev}
         onNext={goToNext}
       />
-      <PokemonList start={151} end={250} />
+      <PokemonList start={151} end={250} setPokemon={handlePokemonClick}/>
     </div>
   )
 }

@@ -5,7 +5,11 @@ import PokemonList from '../../components/PokemonList';
 import PrevAndNext from '../../components/PrevAndNext';
 
 const Unova = () => {
-  const { pokemon, goToPrev, goToNext } = usePokemon(494, 649);
+  const { pokemon, goToPrev, goToNext, fetchAndRenderPokemon } = usePokemon(494, 649);
+
+  const handlePokemonClick = (pokemonNumber) => {
+    fetchAndRenderPokemon(pokemonNumber);
+  };
 
   return (
     <div>
@@ -15,12 +19,14 @@ const Unova = () => {
         sprite={pokemon.sprite}
         types={pokemon.types}
         cry={pokemon.cry}
+        height={pokemon.height}
+        weight={pokemon.weight}
       />
       <PrevAndNext
         onPrev={goToPrev}
         onNext={goToNext}
       />
-      <PokemonList start={493} end={648} />
+      <PokemonList start={493} end={648} setPokemon={handlePokemonClick}/>
     </div>
   )
 }

@@ -5,7 +5,11 @@ import PokemonList from '../../components/PokemonList';
 import PrevAndNext from '../../components/PrevAndNext';
 
 const Sinnoh = () => {
-  const { pokemon, goToPrev, goToNext } = usePokemon(387, 493);
+  const { pokemon, goToPrev, goToNext, fetchAndRenderPokemon } = usePokemon(387, 493);
+
+  const handlePokemonClick = (pokemonNumber) => {
+    fetchAndRenderPokemon(pokemonNumber);
+  };
 
   return (
     <div>
@@ -15,12 +19,14 @@ const Sinnoh = () => {
         sprite={pokemon.sprite}
         types={pokemon.types}
         cry={pokemon.cry}
+        height={pokemon.height}
+        weight={pokemon.weight}
       />
       <PrevAndNext
         onPrev={goToPrev}
         onNext={goToNext}
       />
-      <PokemonList start={386} end={492} />
+      <PokemonList start={386} end={492} setPokemon={handlePokemonClick}/>
     </div>
   )
 }

@@ -1,16 +1,24 @@
-import React from 'react'
+import PropTypes from 'prop-types';
+import React from 'react';
+import styles from './PrevAndNext.module.css';
+import arrow from '../../public/assets/icons/arrow.svg';
 
 const PrevAndNext = ({ onPrev, onNext }) => {
   return (
     <div>
-        <button className="btn-prev" onClick={onPrev}>
-            Previous
+        <button className={styles.button} onClick={onPrev}>
+            <img src={arrow} alt="previous"/>
         </button>
-        <button className="btn-next" onClick={onNext}>
-            Next
+        <button className={`${styles.button} ${styles.rotate}`} onClick={onNext}>
+          <img src={arrow} alt="next"/>
         </button>
     </div>
   )
-}
+};
 
-export default PrevAndNext
+PrevAndNext.propTypes = {
+  onPrev: PropTypes.func.isRequired,
+  onNext: PropTypes.func.isRequired,
+};
+
+export default PrevAndNext;

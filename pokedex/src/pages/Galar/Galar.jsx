@@ -5,7 +5,11 @@ import PokemonList from '../../components/PokemonList';
 import PrevAndNext from '../../components/PrevAndNext';
 
 const Galar = () => {
-  const { pokemon, goToPrev, goToNext } = usePokemon(810, 898);
+  const { pokemon, goToPrev, goToNext, fetchAndRenderPokemon } = usePokemon(810, 898);
+
+  const handlePokemonClick = (pokemonNumber) => {
+    fetchAndRenderPokemon(pokemonNumber);
+  };
 
   return (
     <div>
@@ -15,12 +19,14 @@ const Galar = () => {
         sprite={pokemon.sprite}
         types={pokemon.types}
         cry={pokemon.cry}
+        height={pokemon.height}
+        weight={pokemon.weight}
       />
       <PrevAndNext
         onPrev={goToPrev}
         onNext={goToNext}
       />
-      <PokemonList start={809} end={897} />
+      <PokemonList start={809} end={897} setPokemon={handlePokemonClick}/>
     </div>
   )
 }

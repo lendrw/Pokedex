@@ -8,6 +8,8 @@ const usePokemon = (initialPokemon, maxPokemon) => {
     types: [],
     cry: '',
     description: '',
+    height: '',
+    weight: '',
   });
 
   const [searchPokemon, setSearchPokemon] = useState(initialPokemon);
@@ -50,7 +52,7 @@ const usePokemon = (initialPokemon, maxPokemon) => {
     const controller = new AbortController();
     const signal = controller.signal;
 
-    setPokemon({ name: 'Loading...', number: '', sprite: '', types: [], cry: '', description: '' });
+    setPokemon({ name: 'Loading...', number: '', sprite: '', types: [], cry: '', description: '', height: '', weight: '' });
 
     const pokemonData = await fetchPokemon(pokemonId, signal);
     const pokemonDescription = await fetchDescription(pokemonId, signal);
@@ -63,6 +65,8 @@ const usePokemon = (initialPokemon, maxPokemon) => {
         types: pokemonData.types.map((t) => t.type.name),
         cry: `https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/${pokemonData.id}.ogg`,
         description: pokemonDescription.flavor_text_entries.find((entry) => entry.language.name === 'en').flavor_text,
+        height: pokemonData.height,
+        weight: pokemonData.weight,
       });
     } else {
       setPokemon({
@@ -72,6 +76,8 @@ const usePokemon = (initialPokemon, maxPokemon) => {
         types: [],
         cry: '',
         description: 'A mysterious glitch in the system.',
+        height: '',
+        weight: '',
       });
     }
   };
@@ -94,7 +100,7 @@ const usePokemon = (initialPokemon, maxPokemon) => {
     });
   };
 
-  return { pokemon, goToNext, goToPrev, searchPokemon };
+  return { pokemon, goToNext, goToPrev, fetchAndRenderPokemon };
 };
 
 export default usePokemon;

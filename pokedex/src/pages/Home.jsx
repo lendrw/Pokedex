@@ -18,6 +18,8 @@ const Home = () => {
             types={pokemon.types}
             cry={pokemon.cry}
             description={pokemon.description}
+            height={pokemon.height}
+            weight={pokemon.weight}
         />
         <PrevAndNext
             onPrev={goToPrev}

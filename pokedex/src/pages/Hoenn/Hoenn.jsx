@@ -5,7 +5,11 @@ import PokemonList from '../../components/PokemonList';
 import PrevAndNext from '../../components/PrevAndNext';
 
 const Hoenn = () => {
-  const { pokemon, goToPrev, goToNext } = usePokemon(252, 386);
+  const { pokemon, goToPrev, goToNext, fetchAndRenderPokemon } = usePokemon(252, 386);
+
+  const handlePokemonClick = (pokemonNumber) => {
+    fetchAndRenderPokemon(pokemonNumber);
+  };
 
   return (
     <div>
@@ -15,12 +19,14 @@ const Hoenn = () => {
         sprite={pokemon.sprite}
         types={pokemon.types}
         cry={pokemon.cry}
+        height={pokemon.height}
+        weight={pokemon.weight}
       />
       <PrevAndNext
         onPrev={goToPrev}
         onNext={goToNext}
       />
-      <PokemonList start={251} end={385} />
+      <PokemonList start={251} end={385} setPokemon={handlePokemonClick}/>
     </div>
   )
 }
