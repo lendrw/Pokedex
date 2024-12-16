@@ -18,9 +18,9 @@ const PokemonList = ({ start, end, setPokemon }) => {
             key={pokemon.name} 
             onClick={() => setPokemon(pokemon.number)}
           >
-            <p>{(index + 1).toString().padStart(3, '0')}</p>
+            <p className={styles.pokemon_number}>{(index + 1).toString().padStart(3, '0')}</p>
             <img src={pokemon.sprite} alt={pokemon.name} />
-            <p>{pokemon.name}</p>
+            <p className={styles.pokemon_name}>{pokemon.name}</p>
           </li>
         ))}
       </ul>

@@ -12,7 +12,7 @@ const Alola = () => {
   };
 
   return (
-    <div>
+    <div className='region_container'>
       <PokedexData
         name={pokemon.name}
         number={pokemon.number}

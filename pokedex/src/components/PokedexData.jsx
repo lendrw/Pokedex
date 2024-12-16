@@ -42,7 +42,7 @@ const PokedexData = ({
   };
 
   return (
-    <div className='pokemon-card'>
+    <div className={styles.pokemon_card}>
         <img className={styles.pokemon_sprite} src={sprite} alt={name} />
         <h1 className='pokemon_name'>{number} - {name}</h1>
         <div className='pokemon_types'>

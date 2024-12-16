@@ -1,8 +1,8 @@
-/* PokemonList.module.css */
 .container {
-    max-height: 400px; /* Ajuste conforme necessário */
-    overflow-y: auto;  /* Barra de rolagem vertical */
-    padding-right: 10px; /* Evita que o conteúdo fique colado na barra de rolagem */
+    max-height: 400px; 
+    overflow-y: auto;
+    padding-right: 10px; 
+    width: 500px;
   }
   
   .list {
@@ -13,12 +13,27 @@
   .listItem {
     display: flex;
     align-items: center;
-    padding: 10px;
+    padding: 7px;
+    background-color: rgb(253, 68, 68);
+    color: white;
+    border: 5px solid rgb(204, 7, 7); 
+    border-radius: 100px;
+    margin-bottom: 10px;
+    height: 60px;
+    text-transform: capitalize;
+    box-shadow: 3px 3px 8px rgba(56, 56, 56, 0.5);
   }
   
+  
   .listItem img {
-    width: 50px;
-    height: 50px;
+    width: 80px;
+    height: 80px;
     margin-right: 10px;
   }
   
+  .pokemon_number {
+    background-color: black;
+    position: relative;
+    left: 110px;
+    bottom: 40px;
+  }

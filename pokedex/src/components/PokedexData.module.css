@@ -1,3 +1,8 @@
 .pokemon_sprite {
     height: 100px;
 }
+
+.pokemon_card {
+    background-color: blueviolet;
+    width: 500px;
+}
