@@ -13,13 +13,13 @@ const Home = () => {
     <div>
         <PokedexData
             name={pokemon.name}
-            number={pokemon.number}
+            number={String(pokemon.number)}
             sprite={pokemon.sprite}
             types={pokemon.types}
             cry={pokemon.cry}
             description={pokemon.description}
-            height={pokemon.height}
-            weight={pokemon.weight}
+            height={String(pokemon.height)}
+            weight={String(pokemon.weight)}
         />
         <PrevAndNext
             onPrev={goToPrev}

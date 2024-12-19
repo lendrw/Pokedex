@@ -67,13 +67,13 @@ const PokedexData = ({
 
 PokedexData.propTypes = {
   name: PropTypes.string.isRequired,
-  number: PropTypes.number.isRequired,
+  number: PropTypes.string.isRequired,
   sprite: PropTypes.string.isRequired,
   types: PropTypes.arrayOf(PropTypes.string).isRequired,
   cry: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  height: PropTypes.number.isRequired,
-  weight: PropTypes.number.isRequired
+  height: PropTypes.string.isRequired,
+  weight: PropTypes.string.isRequired
 };
 
 export default PokedexData;
