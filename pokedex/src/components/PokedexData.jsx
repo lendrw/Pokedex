@@ -41,26 +41,29 @@ const PokedexData = ({
     fairy: "assets/pokemon_types/18.png",
   };
 
+  const cleanDescription = (text) => {
+    return text.replace(/[^\x20-\x7E]/g, '');
+  };
+
   return (
     <div className={styles.pokemon_card}>
         <img className={styles.pokemon_sprite} src={sprite} alt={name} />
-        <h1 className='pokemon_name'>{number} - {name}</h1>
-        <div className='pokemon_types'>
+        <p className={styles.pokemon_name}>{number} {name}</p>
+        <div className={styles.pokemon_types}>
           {types && types.map((type) => (
             <img 
               key={type} 
               src={typeImages[type]} 
-              alt={type} 
-              className='pokemon_type_image' 
+              alt={type}  
             />
           ))}
         </div>
         
-        <button onClick={playCry}>Cry</button>
+        <button className={styles.cry} onClick={playCry}>Cry</button>
         
         <p>Height: {(height / 10).toFixed(1)}m Weight: {(weight / 10).toFixed(1)}kg</p>
         
-        <h1>{description}</h1>
+        <p className={styles.desciption}>{cleanDescription(description)}</p>
     </div>
   );
 };

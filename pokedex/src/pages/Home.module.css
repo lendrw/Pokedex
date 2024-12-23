@@ -1,0 +1,75 @@
+.container {
+    width: 500px; 
+    height: 800px; 
+    position: absolute;
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    background-color: #f5f5f5; 
+    border-radius: 16px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 16px;
+  }
+  
+  .region_list {
+    background-color: #c0f0ff;
+  }
+
+  .region_list ul {
+    list-style: none;
+    display: flex;          
+    flex-direction: column; 
+    align-items: center;    
+    padding: 0;             
+}
+
+.region_list li {
+    border: 3px solid rgb(65, 20, 0);
+    border-radius: 10px;
+    margin-top: 10px;
+    height: 40px;
+    width: 350px;
+    display: flex;          
+    justify-content: center; 
+    align-items: center;    
+    font-weight: 500;
+    transform: skewX(-15deg);
+}
+
+.link {
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+}
+
+.kanto {
+    background-color: rgb(255, 0, 0);
+}
+
+.johto {
+    background-color: rgb(255, 153, 0);
+}
+
+.hoenn {
+    background-color: rgb(221, 206, 0);
+}
+
+.sinnoh {
+    background-color: rgb(0, 212, 0);
+}
+
+.unova {
+    background-color: rgb(0, 202, 158);
+}
+
+.kalos {
+    background-color: rgb(0, 124, 226);
+}
+
+.alola {
+    background-color: rgb(0, 41, 223);
+}
+
+.galar {
+    background-color: rgb(101, 0, 216);
+}

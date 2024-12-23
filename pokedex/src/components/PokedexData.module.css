@@ -3,6 +3,35 @@
 }
 
 .pokemon_card {
-    background-color: blueviolet;
-    width: 500px;
+    background: linear-gradient(190deg, #89ffef, #2dceff);
+}
+
+.description {
+
+}
+
+.pokemon_name {
+    text-transform: capitalize;
+}
+
+.pokemon_types img {
+    height: 25px;
+    margin-right: 10px;
+}
+
+.cry {
+    border-radius: 10px; 
+    width: 41px;
+    height: 35px;
+    align-items: center; 
+    justify-content: center; 
+    background-color: var(--medium-blue); 
+    border: none; 
+    cursor: pointer; 
+    border: 1px solid var(--clear-blue);
+    outline: 2px solid white;
+    box-shadow: 1px 10px solid black;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
 }

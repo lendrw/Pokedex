@@ -18,7 +18,7 @@ const SearchForm = ({ onSearch }) => {
         className="input_search"
         value={inputValue}
         onChange={(e) => setInputValue(e.target.value)}
-        placeholder="Enter Pokémon name or ID"
+        placeholder="name or number"
       />
       <button type="submit">Search</button>
     </form>

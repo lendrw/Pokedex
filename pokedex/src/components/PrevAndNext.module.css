@@ -5,16 +5,16 @@
 
 .button {
     border-radius: 50%; 
-    width: 41px;
-    height: 41px;
+    width: 35px;
+    height: 35px;
     align-items: center; 
     justify-content: center; 
     background-color: var(--medium-blue); 
-    border: none; 
     cursor: pointer; 
     border: 1px solid var(--clear-blue);
-    outline: 4px solid white;
+    outline: 3px solid white;
     box-shadow: 1px 10px solid black;
+    margin-right: 10px;
 }
 
 .rotate {
