@@ -1,0 +1,20 @@
+.form {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #c0f0ff;
+}
+
+.input_search {
+    height: 28px;
+    border: 2px solid var(--dark-gray);
+    border-radius: 15px;
+    margin-right: 5px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.input_search::placeholder {
+    text-align: center;
+}

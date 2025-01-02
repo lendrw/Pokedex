@@ -1,0 +1,45 @@
+* {
+    user-select: none;
+  }
+
+.custom_scroll {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .custom_scroll_content {
+    overflow-y: scroll;
+    height: 100%;
+    margin-right: -15px;
+  }
+  
+  .custom_scroll_bar {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 10px;
+    height: 100%;
+    background: var(--dark-gray);
+  }
+  
+  .custom_scroll_thumb {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 7px;
+    background: var(--pale-blue);
+    border-radius: 10px; 
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .custom_scroll_thumb:hover {
+    background: var(--pokeball-red);
+  }
+  
+  .no_select {
+    user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+  }

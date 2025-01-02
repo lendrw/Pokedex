@@ -1,0 +1,138 @@
+.pokemon_sprite {
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pokemon_sprite img {
+    height: 150px;
+}
+
+.pokemon_card {
+    background: linear-gradient(190deg, #89ffef, #2dceff);
+}
+
+.pokemon_name {
+    text-transform: capitalize;
+    font-size: 18px;
+}
+
+.pokemon_name, .description {
+    color: white;
+}
+
+.pokemon_types {
+    margin-bottom: 11px;
+    margin-right: 10px;
+}
+
+.pokemon_types img {
+    height: 22px;
+    margin-right: 10px;
+}
+
+.cry {
+    border-radius: 10px; 
+    width: 41px;
+    height: 35px;
+    align-items: center; 
+    justify-content: center; 
+    background-color: var(--medium-blue); 
+    cursor: pointer; 
+    border: 1px solid var(--clear-blue);
+    outline: 2px solid white;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    margin-left: 15px;
+}
+.prevnext_container {
+    margin-right: 10px;
+    padding-bottom: 19px;
+}
+
+.rotate {
+    transform: rotate(180deg);
+}
+
+.items_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .blue_container {
+    background-color: var(--dark-blue);
+    height: 35px;
+  }
+
+  .blue_container p {
+    margin-left: 15px;
+  }
+
+  .height_and_weight {
+    background-color: var(--dark-gray);
+    color: var(--pokeball-red);
+    font-size: 16px;
+    height: 30px;
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  .height_and_weight p {
+    padding-left: 15px;
+  }
+
+  .white_container {
+    background-color: white;
+    height: 45px;
+  }
+
+  .red_container {
+    background-color: var(--pokeball-red);
+    height: 90px;
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  .red_container p {
+    padding: 30px;
+  }
+
+  .skew1 {
+    background-color: var(--dark-blue);
+    height: 25px;
+    width: 150px;
+    transform: skewX(40deg);
+    border-radius: 7px;
+    position: absolute;
+    right: -17px;
+    top: 182px;
+  }
+
+  .skew2 {
+    background-color: var(--dark-gray);
+    height: 25px;
+    width: 440px;
+    transform: skewX(40deg);
+    border-radius: 7px;
+    position: absolute;
+    right: -20px;
+    top: 263px;
+  }
+
+  .skew3 {
+    background-color: var(--pokeball-red);
+    height: 25px;
+    width: 260px;
+    transform: skewX(40deg);
+    border-radius: 7px;
+    position: absolute;
+    right: -16px;
+    top: 293px;
+  }
+
+  
