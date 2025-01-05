@@ -4,21 +4,30 @@
     display: flex;          
     flex-direction: column; 
     align-items: center;    
-    padding: 0;             
+    padding: 0;     
+    height: 100%;
+    width: 100%;        
+}
+
+.region_list ul {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .region_list li {
     border: 2px solid rgb(65, 20, 0);
     border-radius: 10px;
-    margin-bottom: 1vh;
-    margin-top: 0;
-    height: 32px;
-    width: 280px;
     display: flex;          
     justify-content: center; 
     align-items: center;    
     font-weight: 500;
     transform: skewX(-15deg);
+    width: 300px;
+    height: 36px;
 }
 
 .link {
@@ -62,8 +71,7 @@
 @media (max-width: 1024px) {
     .region_list li {
         font-size: 21px;
-        width: 45vw;
-        height: 3.2vh;
+        width: 40vw;
         border-radius: 13px;
     }
 }
@@ -72,76 +80,47 @@
     
     .region_list li {
         font-size: 20px;
-        height: 3.2vh;
-        margin-bottom: 1vh;
     }
 }
 
 @media (max-width: 915px) and (orientation: landscape) {
    .region_list {
         width: 40%;
-        flex: 1; 
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .region_list ul {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        align-items: center;
     }
 
     .region_list li {
         padding: 9px;
-        width: 30vw;
+        width: 26vw;
     }
 }
 
 @media (max-width: 768px) {
 
-    .region_list li {
-        font-size: 20px;
-        height: 3.7vh;
-        margin-bottom: 1.4vh;
-    }
+    
 }
 
 @media (max-width: 430px) {
 
     .region_list li {
-        height: 4.1vh;
-        margin-bottom: 1.2vh;
-        font-size: 18px;
+        width: 65vw;
     }
 }
 
 @media (max-width: 390px) {
 
-    .region_list {
-        height: 48vh;
-    }
-
-    .region_list li {
-        margin-bottom: 1.2vh;
-    }
+    
 }
 
 @media (max-width: 375px) {
     .region_list li {
-        height: 30px;
+        height: 28px;
         margin-bottom: .9vh;
-        width: 250px;
+        width: 65vw;
     }
 }
 
 @media (max-width: 360px) {
-    .region_list li {
-        margin-bottom: 1.2vh;
-    }
+    
 }
 
 

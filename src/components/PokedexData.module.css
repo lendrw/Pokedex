@@ -16,6 +16,7 @@
 .pokemon_name {
     text-transform: capitalize;
     font-size: 18px;
+    position: absolute;
 }
 
 .pokemon_name, .description {
@@ -27,8 +28,9 @@
 }
 
 .pokemon_types {
-    margin-bottom: 1.4vh;
     margin-right: 1%;
+    display: flex;
+    align-items: center;
 }
 
 .pokemon_types img {
@@ -52,8 +54,7 @@
     margin-left: 15px;
 }
 .prevnext_container {
-    margin-right: 10px;
-    padding-bottom: 19px;
+    margin-left: auto;
 }
 
 .rotate {
@@ -68,7 +69,7 @@
 
   .blue_container {
     background-color: var(--dark-blue);
-    height: 3.5vh;
+    height: 5vh;
   }
 
   .blue_container p {
@@ -79,8 +80,7 @@
     background-color: var(--dark-gray);
     color: var(--pokeball-red);
     font-size: 16px;
-    height: 3.5vh;
-    position: relative;
+    height: 3vh;
     display: flex;
     align-items: center;
   }
@@ -106,39 +106,6 @@
     padding: 6%;
   }
 
-  .skew1 {
-    background-color: var(--dark-blue);
-    height: 25px;
-    width: 150px;
-    transform: skewX(40deg);
-    border-radius: 7px;
-    position: absolute;
-    right: -17px;
-    top: 17.9vh;
-  }
-
-  .skew2 {
-    background-color: var(--dark-gray);
-    height: 25px;
-    width: 46vh;
-    transform: skewX(40deg);
-    border-radius: 7px;
-    position: absolute;
-    left: 8vh;
-    top: 26.4vh;
-  }
-
-  .skew3 {
-    background-color: var(--pokeball-red);
-    height: 25px;
-    width: 260px;
-    transform: skewX(40deg);
-    border-radius: 7px;
-    position: absolute;
-    left: 27vh;
-    top: 29.9vh;
-  }
-
   @media (max-width: 1024px) {
     .pokemon_sprite {
         height: 19vh;
@@ -146,10 +113,6 @@
   
     .pokemon_sprite img {
         height: 12vh;
-    }
-
-    .prevnext_container {
-        margin-bottom: .6vh;
     }
 
     .prevnext_container button {
@@ -161,10 +124,6 @@
         height: 3.5vh;
         font-size: 23px;
         border-radius: 15px;
-    }
-
-    .pokemon_types {
-        margin-bottom: 1.7vh;
     }
 
     .pokemon_types img {
@@ -183,42 +142,10 @@
         font-size: 19px;
     }
 
-    .skew1, .skew2, .skew3 {
-        height: 2.8vh;
-        border-radius: 10px;
-    }
-
-    .skew1 {
-        top: 17vh;
-        width: 19vw;
-        left: 49vw;
-    }
-
-    .skew2 {
-        top: 25vh;
-        width: 59vw;
-        left: 10vw;
-    }
-
-    .skew3 {
-        top: 28vh;
-        width: 39vw;
-        left: 29vw;
-    }
   }
 
   @media (max-width: 820px) {
-    .skew1 {
-        top: 17.2vh;
-    }
-
-    .skew2 {
-        top: 25.7vh;
-    }
-
-    .skew3 {
-        top: 29.2vh;
-    }
+    
   }
 
   @media (max-width: 768px) {
@@ -249,17 +176,7 @@
         padding: 1vh;
     }
   
-    .skew1 {
-        top: 19.1vh;
-    }
-  
-    .skew2 {
-        top: 27.5vh;
-    }
-  
-    .skew3 {
-        top: 31.1vh;
-    }
+    
   }
 
 @media (max-width: 510px) {
@@ -280,49 +197,31 @@
     .red_container {
         padding: 15px;
     }
-  
-    .blue_container, .height_and_weight {
-        height: 4vh;
+
+    .blue_container {
+        height: 6vh;
     }
   
-    .pokemon_types {
-        margin-bottom: 1.5vh;
+    .height_and_weight {
+        height: 3vh;
     }
   
     .description, .pokemon_name, .height_and_weight {
         font-size: 16px;
     }
-  
-    .skew1 {
-        top: 19.8vh;
+
+    .pokemon_types img {
+        height: 2.5vh;
     }
-  
-    .skew2 {
-        top: 28.9vh;
-        left: 9vh;
-    }
-  
-    .skew3 {
-        top: 32.8vh;
-    }
+
   }
 
 @media (max-width: 390px) {
-    .pokemon_types {
-        margin-bottom: 1.5vh;
-    }
   
     .description {
         padding: 1.5vh;
     }
 
-    .skew2 {
-        left: 10vh;
-    }
-
-    .skew3 {
-        left: 29vh;
-    }
   }
 
   @media (max-width: 375px) {
@@ -347,40 +246,17 @@
        font-size: 15px;
        height: 33px;
    }
+
+   .blue_container {
+    height: 6.5vh;
+   }
  
    .white_container {
-       height: 6.2vh;
+       height: 6vh;
    }
  
-   .blue_container, .height_and_weight {
-       height: 3.6vh;
-   }
-
-   .skew1, .skew2, .skew3 {
-    border-radius: 5px;
-    height: 3.8vh;
-   }
- 
-   .skew1 {
-       top: 17.7vh;
-       left: 38vh;
-       width: 21vh;
-   }
- 
-   .skew2 {
-       left: 11.5vh;
-       width: 48vh;
-       top: 28vh;
-   }
- 
-   .skew3 {
-       left: 32vh;
-       top: 31.5vh;
-       width: 30vh;
-   }
- 
-   .pokemon_types {
-       margin-bottom: 2vh;
+   .height_and_weight {
+       height: 4vh;
    }
  
    .pokemon_types img {

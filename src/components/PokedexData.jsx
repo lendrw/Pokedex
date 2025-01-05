@@ -68,8 +68,6 @@ const PokedexData = ({
         {typeof sprite === 'string' ? <img src={sprite} alt={name} /> : sprite}
       </div>
 
-      <div className={styles.skew1}></div>
-
       <div className={`${styles.items_container} ${styles.blue_container}`}>
         <p className={styles.pokemon_name}>{number} {name}</p>
         <div className={styles.prevnext_container}>
@@ -105,13 +103,9 @@ const PokedexData = ({
         </div>
       </div>
 
-      <div className={styles.skew2}></div>
-
       <div className={styles.height_and_weight}>
         <p>Height: {(height / 10).toFixed(1)}m Weight: {(weight / 10).toFixed(1)}kg</p>
       </div>
-
-      <div className={styles.skew3}></div>
       
       <div className={`${styles.description} ${styles.red_container}`}>
         <p>{description}</p>
