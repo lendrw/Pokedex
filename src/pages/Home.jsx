@@ -11,21 +11,24 @@ const Home = () => {
 
     return (
         <div className="container">
-            <PokedexData
-                name={pokemon.name}
-                number={String(pokemon.number)}
-                sprite={pokemon.sprite}
-                types={pokemon.types}
-                cry={pokemon.cry}
-                description={pokemon.description}
-                height={String(pokemon.height)}
-                weight={String(pokemon.weight)}
-                onPrev={goToPrev}
-                onNext={goToNext}
-            />
-            <SearchForm 
-                onSearch={fetchAndRenderPokemon}
-            />
+            <div className='landscape'>
+                <PokedexData
+                    name={pokemon.name}
+                    number={String(pokemon.number)}
+                    sprite={pokemon.sprite}
+                    types={pokemon.types}
+                    cry={pokemon.cry}
+                    description={pokemon.description}
+                    height={String(pokemon.height)}
+                    weight={String(pokemon.weight)}
+                    onPrev={goToPrev}
+                    onNext={goToNext}
+                />
+                <SearchForm 
+                    onSearch={fetchAndRenderPokemon}
+                />
+            </div>
+            
             <div className={styles.region_list}>
                 <ul>
                     <Link to="/Pokedex/kanto" className={styles.link}>
