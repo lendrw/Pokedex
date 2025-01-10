@@ -56,15 +56,4 @@
     justify-content: center;
   }
 
-  .skew {
-    background-color: var(--pokeball-red);
-    border: 5px solid var(--border-red);
-    border-radius: 5px;
-    width: 140px;
-    height: 48px;
-    left: -30px;
-    position: absolute;
-    bottom: 15px;
-    border-bottom: none;
-    border-right: none;
-  }
+  

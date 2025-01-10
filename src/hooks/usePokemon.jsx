@@ -1,3 +1,4 @@
+import missingnoImage from '/src/assets/Missingno..webp';
 import { useState, useEffect } from 'react';
 
 const usePokemon = (initialPokemon, maxPokemon) => {
@@ -13,6 +14,7 @@ const usePokemon = (initialPokemon, maxPokemon) => {
   });
 
   const [searchPokemon, setSearchPokemon] = useState(initialPokemon);
+  const [currentPokemonNumber, setCurrentPokemonNumber] = useState(initialPokemon); 
 
   const fetchPokemon = async (pokemonId, signal) => {
     try {
@@ -52,15 +54,15 @@ const usePokemon = (initialPokemon, maxPokemon) => {
     const controller = new AbortController();
     const signal = controller.signal;
 
-    setPokemon({ 
-      name: 'Loading...', 
-      number: '', 
+    setPokemon({
+      name: 'Loading...',
+      number: '',
       sprite: <div className="loading"></div>,
-      types: [], 
-      cry: '', 
-      description: '', 
-      height: '', 
-      weight: '' 
+      types: [],
+      cry: '',
+      description: '',
+      height: '',
+      weight: '',
     });
 
     const pokemonData = await fetchPokemon(pokemonId, signal);
@@ -79,11 +81,14 @@ const usePokemon = (initialPokemon, maxPokemon) => {
         height: pokemonData.height,
         weight: pokemonData.weight,
       });
+
+      setCurrentPokemonNumber(pokemonData.id);
+
     } else {
       setPokemon({
         name: 'MissingNO',
         number: '???',
-        sprite: '../../public/assets/Missingno..webp',
+        sprite: <img src={missingnoImage} alt="MissingNO" />,
         types: ['water', 'flying'],
         cry: '',
         description: 'A mysterious glitch in the system.',
@@ -91,7 +96,8 @@ const usePokemon = (initialPokemon, maxPokemon) => {
         weight: '',
       });
     }
-    
+
+    return () => controller.abort();
   };
 
   useEffect(() => {
@@ -100,19 +106,19 @@ const usePokemon = (initialPokemon, maxPokemon) => {
 
   const goToNext = () => {
     setSearchPokemon((prev) => {
-      const nextPokemon = prev + 1;
-      return nextPokemon > maxPokemon ? initialPokemon : nextPokemon; 
+      const nextPokemon = currentPokemonNumber + 1;
+      return nextPokemon > maxPokemon ? initialPokemon : nextPokemon;
     });
   };
 
   const goToPrev = () => {
     setSearchPokemon((prev) => {
-      const prevPokemon = prev - 1;
-      return prevPokemon < initialPokemon ? maxPokemon : prevPokemon; 
+      const prevPokemon = currentPokemonNumber - 1;
+      return prevPokemon < initialPokemon ? maxPokemon : prevPokemon;
     });
   };
 
-  return { pokemon, goToNext, goToPrev, fetchAndRenderPokemon };
+  return { pokemon, goToNext, goToPrev, fetchAndRenderPokemon, setSearchPokemon };
 };
 
 export default usePokemon;

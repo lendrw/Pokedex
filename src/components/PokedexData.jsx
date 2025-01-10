@@ -72,22 +72,22 @@ const PokedexData = ({
         <p className={styles.pokemon_name}>{number} {name}</p>
         <div className={styles.prevnext_container}>
           <button 
-            className="button" 
+            className={`button ${styles.prev_button}`} 
             onClick={onPrev}>
             <img src={arrow} alt="previous"/>
           </button>
 
           <button 
-            className={`button ${styles.rotate}`} 
+            className={`button ${styles.next_button} ${styles.rotate}`} 
             onClick={onNext}>
             <img src={arrow} alt="next"/>
           </button>
         </div>
       </div>
 
-      <div className={`${styles.items_container} ${styles.white_container}`}>
+      <div className={styles.white_container}>
         <button 
-          className={styles.cry} 
+          className={`${styles.cry}`} 
           onClick={playCry}>
             Cry
         </button>
