@@ -25,12 +25,14 @@ const PokemonList = ({ start, end, setPokemon }) => {
             key={pokemon.name}
             onClick={() => setPokemon(pokemon.number)}
           >
+            <div className={styles.skew}></div>
+            
             <div className={styles.pokemon_number}>
               <p>
                 {(index + 1).toString().padStart(3, '0')}
               </p>
             </div>
-            <div className={styles.skew}></div>
+            
             
             <img src={pokemon.sprite} alt={pokemon.name} />
             <p className={styles.pokemon_name}>{pokemon.name}</p>

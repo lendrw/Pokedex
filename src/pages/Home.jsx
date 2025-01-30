@@ -2,7 +2,6 @@ import React from 'react';
 import styles from './Home.module.css';
 import usePokemon from '../hooks/usePokemon';
 import PokedexData from '../components/PokedexData';
-import SearchForm from '../components/SearchForm';
 
 import { Link } from 'react-router-dom';
 
@@ -23,8 +22,6 @@ const Home = () => {
                     weight={String(pokemon.weight)}
                     onPrev={goToPrev}
                     onNext={goToNext}
-                />
-                <SearchForm 
                     onSearch={fetchAndRenderPokemon}
                 />
             </div>

@@ -1,5 +1,5 @@
 .pokemon_sprite {
-    height: 50%;
+    height: 45%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -11,7 +11,7 @@
 
 .pokemon_card {
     background: linear-gradient(190deg, #89ffef, #2dceff);
-    height: 90%;
+    height: 100%;
 }
 
 .pokemon_name {
@@ -99,12 +99,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 10%;
+    height: 9%;
   }
 
   .blue_container {
     background-color: var(--dark-blue);
-    height: 11%;
+    height: 10%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -120,12 +120,12 @@
     font-size: 16px;
     display: flex;
     align-items: center;
-    height: 7%;
+    height: 6%;
   }
 
   .red_container {
     background-color: var(--pokeball-red);
-    height: 22%;
+    height: 20%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -135,94 +135,177 @@
     width: 85%;
   }
 
-
-  @media (min-width: 760px) and (max-width: 1024px) {
-    .pokemon_name, .height_and_weight, .description {
-        font-size: 18px;
-    }
-
-    .cry {
-        font-size: 18px;
-    }
-  }
-
-  @media (max-width: 1024px) and (max-height: 600px) and (orientation: landscape) {
-    .prevnext_container {
-      width: 23%;
-    }
-  }
-
-  @media (max-width: 950px) and (orientation: landscape) {
-    .cry {
-      font-size: 15px;
-    }
-  }
-
-  @media (min-width: 800px) and (max-width: 940px) {
-    .prevnext_container {
-        width: 25%;
-    }
-  }
-
-  @media (min-width: 800px) and (max-width: 940px) and (orientation: landscape) {
-    .prevnext_container {
-        width: 20%;
-    }
-  }
-
-  @media (min-width: 800px) and (max-width: 900px) and (max-height: 400px) and (orientation: landscape) {
-    .prevnext_container {
-        width: 17%;
-    }
-  }
-
-
-  @media (max-width: 600px) {
-    .pokemon_name, .height_and_weight, .description {
-        font-size: 21px;
-    }
-
-    .cry {
-        font-size: 140%;
-    }
-  }
-
-  @media (max-width: 600px) and (max-height: 800px) {
-    .pokemon_name, .height_and_weight, .description, .cry {
-        font-size: 15px;
-    }
-
-    .prevnext_container {
-        width: 22%;
-    }
+  .form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 10%;
+    background: linear-gradient(190deg, #89ffef, #2dceff);
 }
 
-  @media (max-width: 450px) {
-    .pokemon_name, .height_and_weight, .description {
-        font-size: 15px;
-    }
+button:active {
+    transform: translateY(2px);
+    border-bottom: none;
+    height: 79%;
+    aspect-ratio: 1.2 / 1;
+}
 
-    .cry {
-        height: 80%;
-        width: 12%;
-        font-size: 100%;
-    }
+.input_search {
+    height: 65%;
+    width: 30%;
+    border: none;
+    border-bottom: 2px solid var(--dark-gray);
+    border-radius: 100px;
+    margin-right: 2%;
+    font-size: 100%;
+    padding: 0 5%;
+}
+
+.input_search::placeholder {
+    text-align: center;
+}
+
+.input_search:focus {
+    outline: none;
+    background-color: var(--pale-blue);
+}
+
+/* Resoluções maiores para menores */
+
+/* De 900px a 1024px */
+@media (min-width: 900px) and (max-width: 1024px) {
+  .input_search {
+      font-size: 16px;
   }
+}
 
-  @media (min-width: 390px) and (max-width: 450px) and (max-height: 950px) {
-    .pokemon_name, .height_and_weight, .description {
-        font-size: 16px;
-    }
-
-    .prevnext_container {
-        width: 24%;
-    }
+/* De 760px a 1024px */
+@media (min-width: 760px) and (max-width: 1024px) {
+  .pokemon_name, .height_and_weight, .description {
+      font-size: 18px;
   }
-
-  @media (max-width: 360px) {
-    .prevnext_container {
-        width: 27%;
-    }
+  .cry {
+      font-size: 18px;
   }
+}
 
-  
+/* Máx-width: 1024px e condições específicas */
+@media (max-width: 1024px) and (max-height: 600px) and (orientation: landscape) {
+  .prevnext_container {
+      width: 23%;
+  }
+}
+
+/* De 800px a 940px */
+@media (min-width: 800px) and (max-width: 940px) {
+  .prevnext_container {
+      width: 25%;
+  }
+}
+@media (min-width: 800px) and (max-width: 940px) and (orientation: landscape) {
+  .prevnext_container {
+      width: 20%;
+  }
+}
+@media (min-width: 800px) and (max-width: 900px) and (max-height: 400px) and (orientation: landscape) {
+  .prevnext_container {
+      width: 17%;
+  }
+}
+
+/* De 700px a 800px */
+@media (max-width: 700px) and (orientation: landscape) {
+  .input_search {
+      font-size: 14px;
+  }
+}
+
+/* Máx-width: 600px */
+@media (max-width: 600px) {
+  .input_search {
+      font-size: 20px;
+  }
+  .pokemon_name, .height_and_weight, .description {
+      font-size: 21px;
+  }
+  .prevnext_container {
+      width: 18%;
+  }
+  .cry {
+      font-size: 140%;
+  }
+}
+
+/* Máx-width: 600px com altura menor */
+@media (max-width: 600px) and (max-height: 800px) {
+  .input_search {
+      font-size: 15px;
+  }
+  .pokemon_name, .height_and_weight, .description, .cry {
+      font-size: 15px;
+  }
+  .prevnext_container {
+      width: 22%;
+  }
+}
+
+/* Máx-width: 530px */
+@media (max-width: 530px) {
+  .prevnext_container {
+      width: 20%;
+  }
+}
+
+/* Máx-width: 470px */
+@media (max-width: 470px) {
+  .prevnext_container {
+      width: 22%;
+  }
+}
+
+/* Máx-width: 450px */
+@media (max-width: 450px) {
+  .input_search {
+      font-size: 14px;
+  }
+  .pokemon_name, .height_and_weight, .description {
+      font-size: 15px;
+  }
+  .cry {
+      height: 80%;
+      width: 12%;
+      font-size: 100%;
+  }
+}
+
+/* De 390px a 450px */
+@media (min-width: 390px) and (max-width: 450px) and (max-height: 950px) {
+  .pokemon_name, .height_and_weight, .description {
+      font-size: 16px;
+  }
+  .prevnext_container {
+      width: 24%;
+  }
+}
+
+/* Máx-width: 389px */
+@media (max-width: 389px) {
+  .prevnext_container {
+      width: 23%;
+  }
+}
+
+/* Máx-width: 365px */
+@media (max-width: 365px) {
+  .prevnext_container {
+      width: 27%;
+  }
+}
+
+/* Máx-width: 350px */
+@media (max-width: 350px) {
+  .input_search {
+      font-size: 13px;
+      width: 35%;
+  }
+}

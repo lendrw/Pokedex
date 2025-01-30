@@ -5,6 +5,8 @@
 .custom_scroll {
     position: relative;
     overflow: hidden;
+    height: 45%;
+    bottom: 0;
   }
   
   .custom_scroll_content {
@@ -44,4 +46,9 @@
     -ms-user-select: none;
   }
 
-  
+  @media (max-width: 600px) and (orientation: landscape) {
+    .custom_scroll {
+      height: 100%;
+      width: 45%;
+    }
+  }

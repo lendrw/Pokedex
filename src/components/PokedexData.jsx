@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types'; 
 import styles from './PokedexData.module.css';
 import arrow from '../assets/icons/arrow.svg';
+import search from '../assets/icons/search.svg';
+import { useState } from 'react';
 
 import normal from '../assets/pokemon_types/1.png'
 import grass from '../assets/pokemon_types/12.png';
@@ -31,13 +33,14 @@ const PokedexData = ({
   height, 
   weight,
   onPrev,
-  onNext 
+  onNext,
+  onSearch
 }) => {
 
   const playCry = () => {
     const audio = new Audio(cry);
     audio.play().catch((error) => {
-      console.error("Erro ao reproduzir o áudio:", error);
+      console.error("Error:", error);
     });
   };
 
@@ -61,6 +64,14 @@ const PokedexData = ({
     steel,
     fairy,
   };
+
+  const [inputValue, setInputValue] = useState('');
+  
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      onSearch(inputValue.toLowerCase());
+      setInputValue('');
+    };
 
   return (
     <div className={styles.pokemon_card}>
@@ -110,6 +121,23 @@ const PokedexData = ({
       <div className={`${styles.description} ${styles.red_container}`}>
         <p>{description}</p>
       </div>
+
+      <form 
+            className={styles.form} 
+            onSubmit={handleSubmit}>
+            <input
+              type="text"
+              className={styles.input_search}
+              value={inputValue}
+              onChange={(e) => setInputValue(e.target.value)}
+              placeholder="name or number"
+            />
+            <button 
+              type="submit"
+              className='button'>
+              <img src={search} alt="magnifying glass" />
+            </button>
+        </form>
     </div>
   );
 };
@@ -125,6 +153,7 @@ PokedexData.propTypes = {
   weight: PropTypes.string.isRequired,
   onPrev: PropTypes.func.isRequired,
   onNext: PropTypes.func.isRequired,
+  onSearch: PropTypes.func.isRequired,
 };
 
 export default PokedexData;
