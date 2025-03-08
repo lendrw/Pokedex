@@ -72,30 +72,4 @@
     justify-content: center;
   }
 
-  @media (max-width: 1024px) {
-    .listItem {
-      height: 55px;
-      width: 390px;
-      border-radius: 10px;
-      font-size: 20px;
-      margin-bottom: 10px;
-    }
-
-    .listItem img {
-      height: 100px;
-    }
-
-    .pokemon_number {
-      left: 115px;
-      bottom: 53px;
-    }
-
-    .skew {
-      border-radius: 5px;
-      height: 55px;
-      width: 140px;
-      bottom: 50%;
-      right: 70%;
-    }
-  }
   
