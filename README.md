@@ -3,7 +3,7 @@
 📌 Uma Pokédex interativa desenvolvida com **React + Vite**, consumindo a **PokéAPI** para exibir informações sobre os Pokémon.  
 
 ## 🚀 **Demonstração**  
-🔗 [Acesse a Pokédex aqui](https://lendrw.github.io/Pokedex) *(se estiver hospedado no GitHub Pages)*  
+🔗 [Acesse a Pokédex aqui](https://lendrw.github.io/Pokedex)  
 
 ## 🛠️ **Tecnologias Utilizadas**  
 - **HTML** → Estrutura do projeto  
