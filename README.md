@@ -1,8 +1,39 @@
-# React + Vite
+# **Pokédex**  
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+📌 Uma Pokédex interativa desenvolvida com **React + Vite**, consumindo a **PokéAPI** para exibir informações sobre os Pokémon.  
 
-Currently, two official plugins are available:
+## 🚀 **Demonstração**  
+🔗 [Acesse a Pokédex aqui](https://lendrw.github.io/Pokedex) *(se estiver hospedado no GitHub Pages)*  
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🛠️ **Tecnologias Utilizadas**  
+- **HTML** → Estrutura do projeto  
+- **CSS** → Estilização e responsividade  
+- **JavaScript** → Manipulação de dados e interatividade  
+- **React + Vite** → Construção do front-end com desempenho otimizado  
+- **PokéAPI** → API utilizada para obter os dados dos Pokémon  
+
+## 📦 **Instalação e Uso**  
+Caso queira rodar localmente:  
+```bash
+# Clone o repositório
+git clone https://github.com/lendrw/pokedex.git
+
+# Acesse a pasta do projeto
+cd pokedex
+
+# Instale as dependências
+npm install
+
+# Inicie o servidor local
+npm run dev
+```
+Abra o navegador em `http://localhost:5173/` para visualizar a aplicação.  
+
+## 🔥 **Funcionalidades**  
+✅ Busca por nome ou número do Pokémon  
+✅ Exibição do nome, tipo, descrição, peso e altura  
+✅ Layout responsivo e intuitivo  
+✅ Consumo da PokéAPI para exibição dos dados  
+
+## 📜 **Licença**  
+Este projeto está sob a licença MIT.  
