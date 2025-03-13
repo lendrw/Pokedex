@@ -12,18 +12,21 @@ const Hoenn = () => {
 
   return (
     <div className='container'>
-      <PokedexData
-        name={pokemon.name}
-        number={String(pokemon.number)}
-        sprite={pokemon.sprite}
-        types={pokemon.types}
-        cry={pokemon.cry}
-        description={pokemon.description}
-        height={String(pokemon.height)}
-        weight={String(pokemon.weight)}
-        onPrev={goToPrev}
-        onNext={goToNext}
-      />
+      <div className='landscape'>
+          <PokedexData
+            name={pokemon.name}
+            number={String(pokemon.number)}
+            sprite={pokemon.sprite}
+            types={pokemon.types}
+            cry={pokemon.cry}
+            description={pokemon.description}
+            height={String(pokemon.height)}
+            weight={String(pokemon.weight)}
+            onPrev={goToPrev}
+            onNext={goToNext}
+            onSearch={fetchAndRenderPokemon}
+          />
+        </div>
       
       <PokemonList start={251} end={385} setPokemon={handlePokemonClick}/>
     </div>

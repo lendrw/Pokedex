@@ -75,56 +75,62 @@ const PokedexData = ({
 
   return (
     <div className={styles.pokemon_card}>
-      <div className={styles.pokemon_sprite}>
-        {typeof sprite === 'string' ? <img src={sprite} alt={name} /> : sprite}
-      </div>
 
-      <div className={`${styles.items_container} ${styles.blue_container}`}>
-        <p className={styles.pokemon_name}>{number} {name}</p>
-        <div className={styles.prevnext_container}>
+      <div className={styles.section}> 
+        <div className={styles.pokemon_sprite}>
+          {typeof sprite === 'string' ? <img src={sprite} alt={name} /> : sprite}
           <button 
-            className={`button ${styles.prev_button}`} 
-            onClick={onPrev}>
-            <img src={arrow} alt="previous"/>
-          </button>
-
-          <button 
-            className={`button ${styles.next_button} ${styles.rotate}`} 
-            onClick={onNext}>
-            <img src={arrow} alt="next"/>
-          </button>
+              className={`${styles.cry}`} 
+              onClick={playCry}>
+                Cry
+            </button>
         </div>
-      </div>
 
-      <div className={styles.white_container}>
-        <button 
-          className={`${styles.cry}`} 
-          onClick={playCry}>
-            Cry
-        </button>
+        <div className={styles.subsection}>
+          <div className={`${styles.red_container}`}>
+            <p className={styles.pokemon_name}>{number} {name}</p>
+            
+          </div>
+            
+            <div className={`${styles.pokemon_types} ${styles.white_container}`}>
+              {types && types.map((type) => (
+                <img 
+                  key={type} 
+                  src={typeImages[type]} 
+                  alt={type}  
+                />
+              ))}
+            </div>
+            
+          <div className={styles.height_and_weight}>
+          <p>Height: {(height / 10).toFixed(1)}m <br /> 
+              Weight: {(weight / 10).toFixed(1)}kg</p>
+          </div>
+        </div>
+
         
-        <div className={styles.pokemon_types}>
-          {types && types.map((type) => (
-            <img 
-              key={type} 
-              src={typeImages[type]} 
-              alt={type}  
-            />
-          ))}
-        </div>
-      </div>
-
-      <div className={styles.height_and_weight}>
-        <p>Height: {(height / 10).toFixed(1)}m Weight: {(weight / 10).toFixed(1)}kg</p>
       </div>
       
-      <div className={`${styles.description} ${styles.red_container}`}>
+      <div className={`${styles.description} ${styles.blue_container}`}>
         <p>{description}</p>
       </div>
 
       <form 
             className={styles.form} 
             onSubmit={handleSubmit}>
+              
+              <button 
+                className={`button ${styles.prev_button}`} 
+                onClick={onPrev}>
+                <img src={arrow} alt="previous"/>
+              </button>
+
+              <button 
+                className={`button ${styles.next_button} ${styles.rotate}`} 
+                onClick={onNext}>
+                <img src={arrow} alt="next"/>
+              </button>
+
             <input
               type="text"
               className={styles.input_search}
@@ -134,7 +140,8 @@ const PokedexData = ({
             />
             <button 
               type="submit"
-              className='button'>
+              className='button'
+              disabled={!inputValue.trim()}>
               <img src={search} alt="magnifying glass" />
             </button>
         </form>

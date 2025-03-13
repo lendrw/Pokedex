@@ -27,8 +27,6 @@ const Alola = () => {
           onSearch={fetchAndRenderPokemon}
         />
       </div>
-      
-      
       <PokemonList start={721} end={808} setPokemon={handlePokemonClick}/>
     </div>
   )

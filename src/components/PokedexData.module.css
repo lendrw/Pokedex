@@ -1,8 +1,21 @@
+.section {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  height: 55%;
+}
+
+.subsection {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 38% 24% 38%;
+}
+
 .pokemon_sprite {
-    height: 45%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5%;
 }
 
 .pokemon_sprite img {
@@ -25,24 +38,28 @@
 
 .description {
   text-align: justify;
+  height: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.description p {
+  width: 90%;
 }
 
 .pokemon_types {
-    display: flex;
-    align-items: center;
-    margin-right: 2%;
-    height: 100%;
+  gap: 2%;
 }
 
 .pokemon_types img {
-    margin-right: 2%;
-    height: 65%;
+  width: 47%;
 }
 
 .cry {
     border-radius: 10px; 
-    width: 9%;
-    height: 85%;
+    width: 3em;
+    height: 2em;
     display: flex;
     align-items: center; 
     justify-content: center; 
@@ -56,29 +73,20 @@
 }
 
 .cry:active {
-    height: 70%;
+    height: 1.9em;
     border-bottom: none;
     transform: translateY(1px);
 }
 
-.prevnext_container {
-    height: 100%;
-    width: 20%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-right: 3%;
-}
 
-
-.prevnext_container .prev_button:active {
+.prev_button:active {
     border-bottom: none;
     transform: translateY(1px);
     height: 77%;
     aspect-ratio: 1.2 / 1;
 }
 
-.prevnext_container .next_button:active {
+.next_button:active {
     border-bottom: none;
     transform: translateY(1px);
     height: 77%;
@@ -97,50 +105,49 @@
 .white_container {
     background-color: white;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    height: 9%;
   }
 
   .blue_container {
     background-color: var(--dark-blue);
-    height: 10%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
   }
 
   .blue_container p, .height_and_weight p, .cry {
-    margin-left: 3%;
+    
   }
 
   .height_and_weight {
     background-color: var(--dark-gray);
-    color: var(--pokeball-red);
-    font-size: 16px;
-    display: flex;
-    align-items: center;
-    height: 6%;
-  }
-
-  .red_container {
-    background-color: var(--pokeball-red);
-    height: 20%;
+    color: white;
+    font-size: 17px;
     display: flex;
     justify-content: center;
     align-items: center;
   }
 
+  .red_container {
+    background-color: var(--pokeball-red);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
   .red_container p {
-    width: 90%;
+    font-size: 20px;
+    font-weight: 600;
   }
 
   .form {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 10%;
-    background: var(--pokeball-red);
+    height: 15%;
+    background: var(--dark-blue);
+    outline: none;
+    border: none;
+    gap: 2%;
 }
 
 .form input {
@@ -160,9 +167,7 @@ button:active {
     border: none;
     border-bottom: 2px solid var(--dark-gray);
     border-radius: 100px;
-    margin-right: 2%;
     font-size: 100%;
-    padding: 0 5%;
 }
 
 .input_search::placeholder {
@@ -172,4 +177,28 @@ button:active {
 .input_search:focus {
     outline: none;
     background-color: var(--pale-blue);
+}
+
+@media (max-width: 760px) and (orientation: landscape) {
+  .section {
+    height: 50%;
+  }
+
+  .description {
+    height: 35%;
+  }
+
+  .description p {
+    font-size: 18px;
+  }
+
+  .cry {
+    width: 58px;
+    height: 45px;
+    font-size: 20px;
+  }
+
+  .cry:active {
+      height: 43px;
+  }
 }

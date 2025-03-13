@@ -21,8 +21,7 @@
 body {
     height: 100vh;
     background: linear-gradient(190deg, #89ffef, #2dceff);
-
-  }
+}
 
 .press:active {
     border-bottom: none;
@@ -32,8 +31,8 @@ body {
 .button {
     border: none;
     border-bottom: 3px solid var(--dark-orange);
-    border-radius: 50%;
-    height: 85%;
+    border-radius: 50px;
+    height: 84%;
     aspect-ratio: 1.1 / 1;
     display: flex;
     align-items: center; 
@@ -57,7 +56,6 @@ body {
     animation: spin 2s linear infinite; 
 }
 
-
 @keyframes spin {
     0% {
         transform: rotate(0deg);
@@ -67,10 +65,8 @@ body {
     }
 }
 
-
-
 .landscape {
-    height: 55%;
+    height: 45%;
 }
 
 .container {
@@ -87,5 +83,28 @@ body {
     flex-direction: column;
     justify-content: space-between;
     background-image: url('../src/assets/background.svg');
+}
+@media (max-width: 760px) {
+    .container {
+        width: 100dvw;
+        height: 100dvh;
+    }
+}
+
+@media (max-width: 760px) and (orientation: landscape) {
+    .container {
+        width: 100dvw;
+        height: 100dvh;
+        display: grid;
+        grid-template-columns: 50% 50%;
+    }
+
+    .container > * { 
+        height: 100dvh;
+    }
+
+    .button {
+        height: 78%;
+    }
 }
 

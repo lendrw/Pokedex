@@ -12,18 +12,21 @@ const Sinnoh = () => {
 
   return (
     <div className='container'>
-      <PokedexData
-        name={pokemon.name}
-        number={String(pokemon.number)}
-        sprite={pokemon.sprite}
-        types={pokemon.types}
-        cry={pokemon.cry}
-        description={pokemon.description}
-        height={String(pokemon.height)}
-        weight={String(pokemon.weight)}
-        onPrev={goToPrev}
-        onNext={goToNext}
-      />
+      <div className='landscape'>
+          <PokedexData
+            name={pokemon.name}
+            number={String(pokemon.number)}
+            sprite={pokemon.sprite}
+            types={pokemon.types}
+            cry={pokemon.cry}
+            description={pokemon.description}
+            height={String(pokemon.height)}
+            weight={String(pokemon.weight)}
+            onPrev={goToPrev}
+            onNext={goToNext}
+            onSearch={fetchAndRenderPokemon}
+          />
+        </div>
       
       <PokemonList start={386} end={492} setPokemon={handlePokemonClick}/>
     </div>

@@ -13,35 +13,31 @@
     align-items: center;
     background-color: var(--pokeball-red);
     color: white;
-    border-bottom: 5px solid var(--border-red); 
+    border-bottom: 3px solid var(--border-red); 
     border-radius: 5px;
     margin-top: 30px;
-    height: 42px;
+    height: 50px;
     width: 290px;
     text-transform: capitalize;
     box-shadow: 3px 3px 8px rgba(56, 56, 56, 0.5);
     transform: skewX(15deg);
     cursor: pointer;
+    font-size: 18px;
     z-index: 10;
   }
 
-  .listItem:active {
-    border-bottom: none;
-    transform: translateY(4px), skewX(15deg);
-  }
-  
   .skew {
     border-radius: 5px;
     background-color: var(--pokeball-red);
     height: 42px;
-    width: 135px;
+    width: 130px;
     bottom: 50%;
     right: 60%;
     position: absolute;
   }
   
   .listItem img {
-    height: 90px;
+    height: 85px;
     transform: skewX(-15deg);
     margin-bottom: 38px;
   }
@@ -49,7 +45,7 @@
   .pokemon_number {
     background-color: black;
     left: 114px;
-    bottom: 40px;
+    bottom: 42px;
     width: 50px;
     position: absolute;
   }
@@ -66,7 +62,7 @@
 
   .list_loading {
     background-color: var(--pale-blue);
-    height: 45%;
+    height: 55%;
     display: flex;
     align-items: center;
     justify-content: center;
